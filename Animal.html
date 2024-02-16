@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <title>Animal Game</title>
+<body>
+
+<h2>Animal Game By Sai Sreeya Tammineni</h2>
+
+<form>
+    <label for="secretAnimal">The hidden animal type:</label>
+    <input type="password" id="secretAnimal" name="secretAnimal" value="Chicken"><br>
+
+    <label for="guessAnimal">Guess the animal:</label>
+    <input type="text" id="guessAnimal" name="guessAnimal"><br>
+
+    <input type="button" value="Check the guess" onclick="checkAnimal()"><br>
+
+    <p id="result"></p>
+</form>
+
+<script>
+    // Global variables to store the counts
+    var wrong = 0;
+    var correct = 0;
+
+    // Function to check the animal guess
+    function checkAnimal() {
+        // Get the values from input elements
+        var secretAnimal = document.getElementById("secretAnimal").value;
+        var guessAnimal = document.getElementById("guessAnimal").value;
+
+        // Compare the values
+        if (secretAnimal === guessAnimal) {
+            // If correct, increment correct count and display message
+            correct++;
+            alert("Ruff ruff");
+        } else {
+            // If wrong, increment wrong count and display message
+            wrong++;
+            alert("Grrrr");
+        }
+
+        // Update the result display with correct and wrong counts
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "Correct: " + correct + ", Wrong: " + wrong;
+    }
+</script>
+</body>
+</html> 

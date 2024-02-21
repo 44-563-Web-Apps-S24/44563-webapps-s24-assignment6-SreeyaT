@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
  <title>Animal Game</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+ integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+ integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 <body>
 
 <h2>Animal Game By Sai Sreeya Tammineni</h2>
@@ -8,42 +14,45 @@
 <form>
     <label for="secretAnimal">The hidden animal type:</label>
     <input type="password" id="secretAnimal" name="secretAnimal" value="Chicken"><br>
-
+    
     <label for="guessAnimal">Guess the animal:</label>
     <input type="text" id="guessAnimal" name="guessAnimal"><br>
-
-    <input type="button" value="Check the guess" onclick="checkAnimal()"><br>
-
+    
+    <input type="button" class="btn btn-secondary" value="Check the guess" onclick="checkAnimal()"><br>
+    
     <p id="result"></p>
 </form>
 
+<div id="imageContainer"></div>
+
 <script>
-    // Global variables to store the counts
     var wrong = 0;
     var correct = 0;
+    var useImage = 1; 
 
-    // Function to check the animal guess
     function checkAnimal() {
-        // Get the values from input elements
+        if (wrong < 10) {
+
         var secretAnimal = document.getElementById("secretAnimal").value;
         var guessAnimal = document.getElementById("guessAnimal").value;
 
-        // Compare the values
         if (secretAnimal === guessAnimal) {
-            // If correct, increment correct count and display message
             correct++;
             alert("Ruff ruff");
         } else {
-            // If wrong, increment wrong count and display message
             wrong++;
             alert("Grrrr");
         }
 
-        // Update the result display with correct and wrong counts
         var resultElement = document.getElementById("result");
         resultElement.innerHTML = "Correct: " + correct + ", Wrong: " + wrong;
     }
+    else {
+        alert("Sorry,ran out of guesses.");
+            }
+    }
 </script>
+
 
 
 <h2>IMAGE</h2>

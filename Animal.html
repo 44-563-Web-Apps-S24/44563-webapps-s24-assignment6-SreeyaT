@@ -44,5 +44,31 @@
         resultElement.innerHTML = "Correct: " + correct + ", Wrong: " + wrong;
     }
 </script>
+
+
+<h2>IMAGE</h2>
+<div><img src="aloha sunrise image.jpg" id="image" width="150" height="150" onclick="selectImage()"></div>
+
+  <script>
+        var useImage = 1
+        function selectImage() {
+            switch (useImage) {
+                case 1:
+                    document.getElementById("image").src = "mystic mint julep image.jpg";
+                    useImage++
+                    break
+                case 2:
+                    document.getElementById("image").src = "tropical twist image.jpg";
+                    useImage++
+                    break
+                case 3:
+                    document.getElementById("image").src = "aloha sunrise image.jpg";
+                    useImage = 1
+                    break
+                default:
+            }
+        }
+           </script>
+
 </body>
 </html> 
